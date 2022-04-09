@@ -2,10 +2,20 @@ import React, { useState } from 'react';
 import { Button } from 'react-native-paper';
 import { View, Text, TextInput } from 'react-native';
 
-export const BlogForm = () => {
+export const BlogForm = ({ add, navigation }) => {
 
     const [title, setTitle] = useState();
     const [content, setContent] = useState();
+
+    const contentAddition = () => {
+        add({
+            _id: `${title}__${Math.floor(Math.random() * 10)}`,
+            title,
+            content
+        });
+
+        navigation.navigate("Blogs");
+    }
 
     return (
         <>
@@ -33,7 +43,7 @@ export const BlogForm = () => {
 
             <Button 
                 mode="contained" 
-                onPress={ () => alert(`${title} ${content}`) }
+                onPress={ () => contentAddition() }
             >Save</Button>
         </>
     )

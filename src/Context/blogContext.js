@@ -5,10 +5,7 @@ export const BlogContext = createContext();
 export const BlogContextProvider = ({ children }) => {
 
     const [contents, setContents] = useState([
-        {_id: "22444", title: "The Big Deal", content: "The short story about the big deal mean still deal with"},
-        {_id: "22434", title: "The Big Deal", content: "The short story about the big deal mean still deal with"},
-        {_id: "22424", title: "The Big Deal", content: "The short story about the big deal mean still deal with"},
-        {_id: "22414", title: "The Big Deal", content: "The short story about the big deal mean still deal with"}
+        {_id: "22444", title: "The Big Deal", content: "The short story about the big deal mean still deal with"}
     ]);
 
     const addContent = (cont) => setContents([...contents, cont]);
