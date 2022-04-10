@@ -9,15 +9,13 @@ export const BlogScreen = ({ navigation }) => {
 
     const { contents } = useContext( BlogContext );
 
-    console.log(contents)
-
     return (
         <>
     
             <FlatList 
                 data={contents}
                 renderItem={ ({ item }) => (
-                    <DisplayContainer title={ item.title } navigation={ navigation } />
+                    <DisplayContainer item={ item } navigation={ navigation } />
                 )}
                 keyExtractor={ item => item._id }
             />

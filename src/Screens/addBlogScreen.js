@@ -4,11 +4,20 @@ import { BlogForm } from '../components/forms/blog-form.component';
 
 import { BlogContext } from '../Context/blogContext';
 
-export const AddBlogScreen = ({ navigation }) => {
+export const AddBlogScreen = ({ navigation, route }) => {
 
-    const { addContent } = useContext(BlogContext);
+    const { action, item } = route.params;
+    const { addContent, edit } = useContext(BlogContext);
 
     return (
-        <BlogForm add={ addContent } navigation={ navigation } />
+        <>
+        
+            { action === 'edit' ?
+                <BlogForm edit={ edit } add={ addContent } item={ item } navigation={ navigation } />
+                :
+                <BlogForm edit={ edit }  add={ addContent } navigation={ navigation } />
+            }
+
+        </>
     )
 }

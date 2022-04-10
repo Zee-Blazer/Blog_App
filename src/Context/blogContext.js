@@ -10,16 +10,18 @@ export const BlogContextProvider = ({ children }) => {
 
     const addContent = (cont) => setContents([...contents, cont]);
 
-    const removeContent = (cont) => {}
+    const removeContent = (cont) => setContents(contents.filter( item => item._id !== cont._id ));
 
-    const displayContent = () => {}
+    const editContent = (cont) => {
+        console.log(cont);
+    }
 
     return (
         <BlogContext.Provider value={{
             contents,
             addContent,
             removeContent,
-            display: displayContent
+            edit: editContent
         }}>
             { children }
         </BlogContext.Provider>

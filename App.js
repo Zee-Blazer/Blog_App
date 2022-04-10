@@ -49,7 +49,7 @@ export default function App() {
                     name="add-to-list" 
                     size={24} 
                     color="purple" 
-                    onPress={ () => navigation.navigate("AddBlog") }
+                    onPress={ () => navigation.navigate("AddBlog", { action: "add" }) }
                   />
               })}
             />
@@ -59,7 +59,11 @@ export default function App() {
               component={ MainBlogScreen }  
               options={ ({ route, navigation }) => ({
                 headerRight: () => <FontIcon 
-                    onPress={ () => navigation.navigate("AddBlog") } 
+                    onPress={ () => {
+                      const { item } = route.params;
+
+                      navigation.navigate("AddBlog", { item, action: "edit" })
+                    } } 
                     name="pencil-square-o" 
                     size={24} 
                     color="purple" 
